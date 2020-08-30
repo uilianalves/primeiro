@@ -14,29 +14,43 @@ import com.uilian.primeiro.domain.Categoria;
 import com.uilian.primeiro.repositories.CategoriaRepository;
 import com.uilian.primeiro.services.CategoriaService;
 
-
 @RestController
-@RequestMapping(value="/categorias")
+@RequestMapping(value = "/categorias")
 public class CategoriaResourse {
-	
+
 	@Autowired
-	 CategoriaService service;
-	
-	
-	@RequestMapping(method=RequestMethod.GET)
+	CategoriaService service;
+
+	@RequestMapping(method = RequestMethod.GET)
 	public List<Categoria> listar() {
-		
+
 		Categoria cat = new Categoria(1, "Informatica");
-		Categoria cat2 = new Categoria(2,"Escritorio");
-		
+		Categoria cat2 = new Categoria(2, "Escritorio");
+
 		List<Categoria> obj = new ArrayList<>();
-		
+
 		obj.add(cat);
 		obj.add(cat2);
-		
+
 		return obj;
-				
+
 	}
-	
-	
+
+	@RequestMapping(method = RequestMethod.GET, value = "/{id}")
+	public List<Categoria> listarPorId(@PathVariable("id") Integer id) {
+
+		System.out.println("=============" +id);
+		
+		Categoria cat = new Categoria(1, "Informatica");
+//		Categoria cat2 = new Categoria(2, "Escritorio");
+
+		List<Categoria> obj = new ArrayList<>();
+
+		obj.add(cat);
+//		obj.add(cat2);
+
+		return obj;
+
+	}
+
 }
