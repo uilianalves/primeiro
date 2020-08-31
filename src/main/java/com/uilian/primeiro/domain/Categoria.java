@@ -13,7 +13,7 @@ import javax.persistence.Id;
 
 
 @Entity
-@Table(name = "edu_course")
+@Table(name = "categoria")
 public class Categoria implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
@@ -22,8 +22,6 @@ public class Categoria implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	Integer id;
 	String nome;
-	
-	
 	
 	
 	public Categoria() {

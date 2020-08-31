@@ -14,11 +14,9 @@ public class CategoriaService {
 	@Autowired
 	CategoriaRepository repository;
 	
-	public Optional<Categoria> buscar(Integer id) {
-		Optional<Categoria> obj = repository.findById(id);
-
-		return obj;
-		
-	}
+	public Categoria find(Integer id) {
+		 Optional<Categoria> obj = repository.findById(id);
+		return obj.orElse(null);
+		} 
 	
 }
